@@ -1,4 +1,29 @@
 package edu.aitu.oop3.repositoriesimpl;
 
-public class MemberRepositoryJdbc {
+import edu.aitu.oop3.Entities.Member;
+import edu.aitu.oop3.Repositories.MemberRepository;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Optional;
+
+public class MemberRepositoryJdbc implements MemberRepository {
+
+    @Override
+    public Optional<Member> findById(Connection con, long id) throws SQLException {
+        String sql = "SELECT id, full_name, email FROM members WHERE id = ?";
+        try (PreparedStatement st = con.prepareStatement(sql)) {
+            st.setLong(1, id);
+            try (ResultSet rs = st.executeQuery()) {
+                if (!rs.next()) return Optional.empty();
+                return Optional.of(new Member(
+                        rs.getLong("id"),
+                        rs.getString("full_name"),
+                        rs.getString("email")
+                ));
+            }
+        }
+    }
 }

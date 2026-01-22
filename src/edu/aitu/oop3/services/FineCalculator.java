@@ -1,4 +1,7 @@
 package edu.aitu.oop3.services;
 
-public class FineCalculator {
+import java.time.LocalDate;
+
+public interface FineCalculator {
+    double calculate(LocalDate dueDate, LocalDate returnDate);
 }

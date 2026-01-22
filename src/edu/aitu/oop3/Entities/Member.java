@@ -1,30 +1,26 @@
-package edu.aitu.oop3.entities;
+package edu.aitu.oop3.Entities;
 
 public class Member {
     private long id;
     private String fullName;
-    private String phone;
+    private String email;
 
-    public Member() {}
-
-    public Member(long id, String fullName, String phone) {
+    public Member(long id, String fullName, String email) {
         this.id = id;
         this.fullName = fullName;
-        this.phone = phone;
-    }
-
-    public Member(String fullName, String phone) {
-        this(0, fullName, phone);
+        this.email = email;
     }
 
     public long getId() { return id; }
     public String getFullName() { return fullName; }
-    public String getPhone() { return phone; }
-
-    public void setId(long id) { this.id = id; }
+    public String getEmail() { return email; }
 
     @Override
     public String toString() {
-        return id + " | " + fullName + " | phone=" + phone;
+        return "Member{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

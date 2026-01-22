@@ -1,4 +1,11 @@
 package edu.aitu.oop3.Repositories;
 
-public class MemberRepository {
+import edu.aitu.oop3.Entities.Member;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Optional;
+
+public interface MemberRepository {
+    Optional<Member> findById(Connection con, long id) throws SQLException;
 }
