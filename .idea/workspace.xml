@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d4ff7ba-a49f-4eca-8c81-823cd6c762d1" name="Changes" comment="ss">
-      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/controllers/LibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/controllers/LibraryController.java" afterDir="false" />
+    <list default="true" id="2d4ff7ba-a49f-4eca-8c81-823cd6c762d1" name="Changes" comment="assign3">
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Entities/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Entities/Loan.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1769335426342</updated>
-      <workItem from="1769335427447" duration="3790000" />
+      <workItem from="1769335427447" duration="4100000" />
     </task>
     <task id="LOCAL-00001" summary="ss">
       <option name="closed" value="true" />
@@ -75,7 +75,71 @@
       <option name="project" value="LOCAL" />
       <updated>1769336135477</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ss">
+      <option name="closed" value="true" />
+      <created>1769341941621</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1769341941621</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ss">
+      <option name="closed" value="true" />
+      <created>1769342044619</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1769342044619</updated>
+    </task>
+    <task id="LOCAL-00004" summary="ss">
+      <option name="closed" value="true" />
+      <created>1769342070481</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1769342070481</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ss">
+      <option name="closed" value="true" />
+      <created>1769342088491</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1769342088491</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ss">
+      <option name="closed" value="true" />
+      <created>1769342110830</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1769342110830</updated>
+    </task>
+    <task id="LOCAL-00007" summary="ss">
+      <option name="closed" value="true" />
+      <created>1769342123983</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1769342123983</updated>
+    </task>
+    <task id="LOCAL-00008" summary="ss">
+      <option name="closed" value="true" />
+      <created>1769342205329</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1769342205329</updated>
+    </task>
+    <task id="LOCAL-00009" summary="assign3">
+      <option name="closed" value="true" />
+      <created>1769342222389</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1769342222389</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,6 +159,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="ss" />
-    <option name="LAST_COMMIT_MESSAGE" value="ss" />
+    <MESSAGE value="assign3" />
+    <option name="LAST_COMMIT_MESSAGE" value="assign3" />
   </component>
 </project>
