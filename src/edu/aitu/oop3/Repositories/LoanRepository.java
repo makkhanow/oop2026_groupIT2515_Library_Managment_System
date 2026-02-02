@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-public interface LoanRepository {
+public interface LoanRepository extends Repository<Loan, Long> {
     Optional<Loan> findActiveLoanByBook(Connection con, long bookId) throws SQLException;
 
     List<Loan> findActiveLoansByMember(Connection con, long memberId) throws SQLException;
