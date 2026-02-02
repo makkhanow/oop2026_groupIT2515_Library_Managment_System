@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d4ff7ba-a49f-4eca-8c81-823cd6c762d1" name="Changes" comment="assign4">
-      <change afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/config/LibraryConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/controllers/MemberSummary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/DatabaseConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/Repositories/BookRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/Repositories/LoanRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/Repositories/MemberRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/app/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/repositoriesimpl/BookRepositoryJdbc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/repositoriesimpl/LoanRepositoryJdbc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/repositoriesimpl/MemberRepositoryJdbc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/services/LoanService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/CrudRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/CrudRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/config/DatabaseConnectionManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/controllers/LibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/controllers/LibraryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/repositoriesimpl/BookRepositoryJdbc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/repositoriesimpl/BookRepositoryJdbc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/services/LoanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/services/LoanService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Entities/EBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Entities/PrintedBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Entities/ReferenceBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/factory/BookFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Entities/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Entities/Book.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770010512620</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="assign4">
+      <option name="closed" value="true" />
+      <created>1770027123930</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1770027123930</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

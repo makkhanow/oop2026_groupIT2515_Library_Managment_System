@@ -17,6 +17,13 @@ public class Book {
         this.availableCopies = availableCopies;
     }
 
+    public Book(int id, String title, String author, boolean available, String ebook) {
+
+    }
+
+    public Book() {
+    }
+
     public long getId() { return id; }
     public String getTitle() { return title; }
     public String getAuthor() { return author; }
