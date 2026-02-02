@@ -6,6 +6,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Optional;
 
-public interface MemberRepository extends Repository<Member, Long> {
+public interface MemberRepository extends CrudRepository<Member, Long> {
     Optional<Member> findById(Connection con, long id) throws SQLException;
 }

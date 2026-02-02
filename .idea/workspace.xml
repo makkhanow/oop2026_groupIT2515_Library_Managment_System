@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d4ff7ba-a49f-4eca-8c81-823cd6c762d1" name="Changes" comment="assign4">
-      <change afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/config/DatabaseConnectionManager.java" afterDir="false" />
+    <list default="true" id="2d4ff7ba-a49f-4eca-8c81-823cd6c762d1" name="Changes" comment="assign3">
+      <change afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/CrudRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/repositoriesimpl/BookRepositoryJdbc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/repositoriesimpl/BookRepositoryJdbc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/LoanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/LoanRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/Repository.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +44,9 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="38kEyu1TUsaulUf5whyrC9UHW1h" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -48,7 +54,6 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
@@ -78,11 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1769335426342</updated>
       <workItem from="1769335427447" duration="5829000" />
-      <workItem from="1769403560952" duration="14871000" />
-      <workItem from="1770009439490" duration="651000" />
-      <workItem from="1770010094711" duration="29000" />
-      <workItem from="1770010145468" duration="142000" />
-      <workItem from="1770010292090" duration="3000" />
+      <workItem from="1769403560952" duration="12640000" />
     </task>
     <task id="LOCAL-00001" summary="ss">
       <option name="closed" value="true" />
@@ -252,13 +253,13 @@
       <option name="project" value="LOCAL" />
       <updated>1769342432961</updated>
     </task>
-    <task id="LOCAL-00022" summary="assign4">
+    <task id="LOCAL-00022" summary="assign3">
       <option name="closed" value="true" />
-      <created>1769975537705</created>
+      <created>1770008363144</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1769975537705</updated>
+      <updated>1770008363144</updated>
     </task>
     <option name="localTasksCounter" value="23" />
     <servers />
@@ -281,7 +282,6 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="ss" />
     <MESSAGE value="assign3" />
-    <MESSAGE value="assign4" />
-    <option name="LAST_COMMIT_MESSAGE" value="assign4" />
+    <option name="LAST_COMMIT_MESSAGE" value="assign3" />
   </component>
 </project>
