@@ -4,13 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d4ff7ba-a49f-4eca-8c81-823cd6c762d1" name="Changes" comment="assign3">
-      <change afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/CrudRepository.java" afterDir="false" />
+    <list default="true" id="2d4ff7ba-a49f-4eca-8c81-823cd6c762d1" name="Changes" comment="assign4">
+      <change afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/config/LibraryConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/controllers/MemberSummary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/DatabaseConnection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/Repositories/BookRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/Repositories/LoanRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/Repositories/MemberRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/app/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/repositoriesimpl/BookRepositoryJdbc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/repositoriesimpl/LoanRepositoryJdbc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/repositoriesimpl/MemberRepositoryJdbc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/services/LoanService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/LoanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/LoanRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/MemberRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/Repository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/CrudRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/CrudRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/config/DatabaseConnectionManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/controllers/LibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/controllers/LibraryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/repositoriesimpl/BookRepositoryJdbc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/repositoriesimpl/BookRepositoryJdbc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/services/LoanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/services/LoanService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,22 +63,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "OverrideImplement.generate.javadoc": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="edu.aitu.oop3.controllers" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -261,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770008363144</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="assign4">
+      <option name="closed" value="true" />
+      <created>1770010512620</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1770010512620</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,6 +308,18 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="ss" />
     <MESSAGE value="assign3" />
-    <option name="LAST_COMMIT_MESSAGE" value="assign3" />
+    <MESSAGE value="assign4" />
+    <option name="LAST_COMMIT_MESSAGE" value="assign4" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/edu/aitu/oop3/repositoriesimpl/LoanRepositoryJdbc.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

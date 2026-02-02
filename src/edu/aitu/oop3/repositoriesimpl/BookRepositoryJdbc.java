@@ -69,4 +69,39 @@ public class BookRepositoryJdbc implements BookRepository {
     public Optional<Book> findById(Connection con, Long aLong) throws SQLException {
         return Optional.empty();
     }
+
+    /**
+     * @param entity
+     * @return
+     */
+    @Override
+    public Book save(Book entity) {
+        return null;
+    }
+
+    /**
+     * @param aLong
+     * @return
+     */
+    @Override
+    public Optional<Book> findById(Long aLong) {
+        return Optional.empty();
+    }
+
+    /**
+     * @return
+     */
+    @Override
+    public List<Book> findAll() {
+        return List.of();
+    }
+
+    /**
+     * @param aLong
+     * @return
+     */
+    @Override
+    public boolean deleteById(long aLong) {
+        return false;
+    }
 }

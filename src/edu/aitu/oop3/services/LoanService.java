@@ -1,5 +1,6 @@
 package edu.aitu.oop3.services;
 
+import edu.aitu.oop3.controllers.MemberSummary;
 import edu.aitu.oop3.db.IDB;
 import edu.aitu.oop3.Entities.Loan;
 import edu.aitu.oop3.Exceptions.BookAlreadyOnLoanException;
@@ -36,6 +37,19 @@ public class LoanService {
         this.fineCalculator = fineCalculator;
         this.defaultLoanDays = defaultLoanDays;
     }
+
+    public LoanService(LoanRepository loanRepository, BookRepository bookRepository, MemberRepository memberRepository, FineCalculator fineCalculator, IDB db, BookRepository bookRepo, MemberRepository memberRepo, LoanRepository loanRepo, FineCalculator fineCalculator1, int defaultLoanDays) {
+
+        this.db = db;
+        this.bookRepo = bookRepo;
+        this.memberRepo = memberRepo;
+        this.loanRepo = loanRepo;
+        this.fineCalculator = fineCalculator1;
+        this.defaultLoanDays = defaultLoanDays;
+    }
+
+
+
 
     // User story: list available books
     public List<edu.aitu.oop3.Entities.Book> listAvailableBooks() {
@@ -134,5 +148,19 @@ public class LoanService {
         } catch (SQLException e) {
             throw new RuntimeException("DB error: returnBook", e);
         }
+    }
+
+    public MemberSummary generateMemberSummary(int memberId) {
+
+
+        return null;
+    }
+
+    public <LoanReport> LoanReport generateLoanReport(int loanId) {
+        return null;
+    }
+
+    public void listOverdueLoans() {
+
     }
 }

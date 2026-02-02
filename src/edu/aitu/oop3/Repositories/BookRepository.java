@@ -17,6 +17,8 @@ public interface BookRepository extends CrudRepository<Book, Long> {
 
 
     void increaseAvailable(Connection con, long bookId) throws SQLException;
+
+    Optional<Book> findById(Connection con, Long aLong) throws SQLException;
 }
 
 
