@@ -64,4 +64,9 @@ public class BookRepositoryJdbc implements BookRepository {
                 rs.getInt("available_copies")
         );
     }
+
+    @Override
+    public Optional<Book> findById(Connection con, Long aLong) throws SQLException {
+        return Optional.empty();
+    }
 }
