@@ -38,7 +38,7 @@ public class LoanService {
         this.defaultLoanDays = defaultLoanDays;
     }
 
-    public LoanService(LoanRepository loanRepository, BookRepository bookRepository, MemberRepository memberRepository, FineCalculator fineCalculator) {
+    public LoanService(LoanRepository loanRepository, BookRepository bookRepository, MemberRepository memberRepository, FineCalculator fineCalculator, IDB db, BookRepository bookRepo, MemberRepository memberRepo, LoanRepository loanRepo, FineCalculator fineCalculator1, int defaultLoanDays) {
 
         this.db = db;
         this.bookRepo = bookRepo;
@@ -163,4 +163,4 @@ public class LoanService {
     public void listOverdueLoans() {
 
     }
-} //fffff
+}

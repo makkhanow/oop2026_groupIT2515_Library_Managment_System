@@ -16,4 +16,6 @@ public interface LoanRepository extends CrudRepository<Loan, Long> {
     Loan createLoan(Connection con, long bookId, long memberId, LocalDate loanDate, LocalDate dueDate) throws SQLException;
 
     void closeLoan(Connection con, long loanId, LocalDate returnDate) throws SQLException;
+
+    void update(Optional<Loan> loan);
 }

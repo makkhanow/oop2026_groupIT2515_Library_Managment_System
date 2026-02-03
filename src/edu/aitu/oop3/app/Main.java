@@ -1,5 +1,7 @@
 package edu.aitu.oop3.app;
 
+import edu.aitu.oop3.Entities.Book;
+import edu.aitu.oop3.Entities.Loan;
 import edu.aitu.oop3.controllers.LibraryController;
 import edu.aitu.oop3.db.IDB;
 import edu.aitu.oop3.db.SupabaseDB;
@@ -13,6 +15,9 @@ import edu.aitu.oop3.services.FineCalculator;
 import edu.aitu.oop3.services.SimpleFineCalculator;
 import edu.aitu.oop3.services.LoanService;
 
+import java.util.List;
+import java.util.Optional;
+
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -25,7 +30,50 @@ public class Main {
 
         BookRepository bookRepo = new BookRepositoryJdbc();
         MemberRepository memberRepo = new MemberRepositoryJdbc();
-        LoanRepository loanRepo = new LoanRepositoryJdbc();
+        LoanRepository loanRepo = new LoanRepositoryJdbc() {
+            /**
+             * @param entity
+             * @return
+             */
+            @Override
+            public Loan save(Loan entity) {
+                return null;
+            }
+
+            /**
+             * @param aLong
+             * @return
+             */
+            @Override
+            public Optional<Loan> findById(Long aLong) {
+                return Optional.empty();
+            }
+
+            /**
+             * @return
+             */
+            @Override
+            public List<Loan> findAll() {
+                return List.of();
+            }
+
+            /**
+             * @param aLong
+             * @return
+             */
+            @Override
+            public boolean deleteById(Long aLong) {
+                return false;
+            }
+
+            /**
+             * @return
+             */
+            @Override
+            public List<Book> listAvailableBooks() {
+                return List.of();
+            }
+        };
 
         FineCalculator fineCalculator = new SimpleFineCalculator(500.0);
 

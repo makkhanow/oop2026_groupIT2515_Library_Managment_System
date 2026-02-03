@@ -3,7 +3,7 @@ package edu.aitu.oop3.services;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class SimpleFineCalculator implements FineCalculator {
+public class SimpleFineCalculator extends FineCalculator {
     private final double finePerDay;
 
     public SimpleFineCalculator(double finePerDay) {

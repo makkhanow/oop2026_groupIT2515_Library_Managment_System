@@ -42,4 +42,8 @@ public class Book {
                 ", availableCopies=" + availableCopies +
                 '}';
     }
+
+    public void setAvailable(boolean b) {
+
+    }
 }

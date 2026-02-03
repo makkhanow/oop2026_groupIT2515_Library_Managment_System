@@ -6,6 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="2d4ff7ba-a49f-4eca-8c81-823cd6c762d1" name="Changes" comment="assign4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/makhanow Project/edu/aitu/oop3/app/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Entities/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Entities/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Entities/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Entities/Loan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Entities/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Entities/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Exceptions/LoanOverdueException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Exceptions/LoanOverdueException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/LoanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/Repositories/LoanRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/controllers/LibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/controllers/LibraryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/repositoriesimpl/BookRepositoryJdbc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/repositoriesimpl/BookRepositoryJdbc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/repositoriesimpl/LoanRepositoryJdbc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/repositoriesimpl/LoanRepositoryJdbc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/services/FineCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/services/FineCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/services/LoanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/services/LoanService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/aitu/oop3/services/SimpleFineCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/aitu/oop3/services/SimpleFineCalculator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,12 +43,12 @@
     &quot;assignee&quot;: &quot;elamanorazhan0-coder&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/makkhanow/Makhanow-Yelaman-Project.git",
-    "accountId": "1697d5b1-b3c6-4d07-bf42-8cc087f5e275"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/makkhanow/Makhanow-Yelaman-Project&quot;,
+    &quot;accountId&quot;: &quot;61e2dc62-6b9f-4278-ad6f-31ad1ff8f114&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -72,6 +86,7 @@
     <attachedChunks>
       <set>
         <option value="bundled-jdk-30f59d01ecdd-cffe25b9f5b3-intellij.indexing.shared.core-IU-253.28294.334" />
+        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-IU-253.28294.334" />
       </set>
     </attachedChunks>
   </component>
@@ -277,23 +292,7 @@
       <option name="project" value="LOCAL" />
       <updated>1770027123930</updated>
     </task>
-    <task id="LOCAL-00025" summary="assign4">
-      <option name="closed" value="true" />
-      <created>1770032138307</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1770032138307</updated>
-    </task>
-    <task id="LOCAL-00026" summary="assign4">
-      <option name="closed" value="true" />
-      <created>1770099887833</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1770099887833</updated>
-    </task>
-    <option name="localTasksCounter" value="27" />
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

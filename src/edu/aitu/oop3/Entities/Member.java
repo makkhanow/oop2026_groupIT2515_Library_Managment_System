@@ -23,4 +23,8 @@ public class Member {
                 ", email='" + email + '\'' +
                 '}';
     }
+
+    public Object getName() {
+        return null;
+    }
 }

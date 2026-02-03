@@ -37,4 +37,17 @@ public class Loan {
                 ", returnDate=" + returnDate +
                 '}';
     }
+
+    public boolean isOverdue() {
+
+        return false;
+    }
+
+    public long daysOverdue() {
+        return 0;
+    }
+
+    public void setReturnDate(LocalDate returnDate) {
+
+    }
 }
