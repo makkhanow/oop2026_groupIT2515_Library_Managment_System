@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class LoanRepositoryJdbc implements LoanRepository {
+public abstract class LoanRepositoryJdbc implements LoanRepository {
 
     @Override
     public Optional<Loan> findActiveLoanByBook(Connection con, long bookId) throws SQLException {

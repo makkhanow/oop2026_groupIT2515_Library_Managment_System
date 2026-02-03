@@ -1,55 +1,87 @@
 package edu.aitu.oop3.app;
 
-import edu.aitu.oop3.config.LibraryConfig;
+import edu.aitu.oop3.Entities.Book;
+import edu.aitu.oop3.Entities.Loan;
 import edu.aitu.oop3.controllers.LibraryController;
 import edu.aitu.oop3.db.IDB;
 import edu.aitu.oop3.db.SupabaseDB;
-
 import edu.aitu.oop3.Repositories.BookRepository;
 import edu.aitu.oop3.Repositories.MemberRepository;
 import edu.aitu.oop3.Repositories.LoanRepository;
-
 import edu.aitu.oop3.repositoriesimpl.BookRepositoryJdbc;
 import edu.aitu.oop3.repositoriesimpl.MemberRepositoryJdbc;
 import edu.aitu.oop3.repositoriesimpl.LoanRepositoryJdbc;
-
 import edu.aitu.oop3.services.FineCalculator;
 import edu.aitu.oop3.services.SimpleFineCalculator;
 import edu.aitu.oop3.services.LoanService;
 
-public class Main {
+import java.util.List;
+import java.util.Optional;
 
-    public static void main(String[] args) {
+
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
 
         String url = "jdbc:postgresql://aws-1-ap-southeast-2.pooler.supabase.com:5432/postgres?sslmode=require";
         String user = "postgres.yoylqddvtcevkdhyktlp";
-        String password = "";
+        String password = "DB_PASSWORD";
 
         IDB db = new SupabaseDB(url, user, password);
 
-        // 🔹 2) Repositories
         BookRepository bookRepo = new BookRepositoryJdbc();
         MemberRepository memberRepo = new MemberRepositoryJdbc();
-        LoanRepository loanRepo = new LoanRepositoryJdbc();
+        LoanRepository loanRepo = new LoanRepositoryJdbc() {
+            /**
+             * @param entity
+             * @return
+             */
+            @Override
+            public Loan save(Loan entity) {
+                return null;
+            }
 
-        // 🔹 3) Singleton config
-        LibraryConfig config = LibraryConfig.getInstance();
+            /**
+             * @param aLong
+             * @return
+             */
+            @Override
+            public Optional<Loan> findById(Long aLong) {
+                return Optional.empty();
+            }
 
-        // 🔹 4) Services
-        FineCalculator fineCalculator =
-                new SimpleFineCalculator(config.getFinePerDay());
+            /**
+             * @return
+             */
+            @Override
+            public List<Loan> findAll() {
+                return List.of();
+            }
+
+            /**
+             * @param aLong
+             * @return
+             */
+            @Override
+            public boolean deleteById(Long aLong) {
+                return false;
+            }
+
+            /**
+             * @return
+             */
+            @Override
+            public List<Book> listAvailableBooks() {
+                return List.of();
+            }
+        };
+
+        FineCalculator fineCalculator = new SimpleFineCalculator(500.0);
 
         LoanService loanService = new LoanService(
-                db,
-                bookRepo,
-                memberRepo,
-                loanRepo,
-                fineCalculator,
-                config.getDefaultLoanDays()
+                db, bookRepo, memberRepo, loanRepo, fineCalculator, 14
         );
 
-        // 🔹 5) Controller (UI)
         LibraryController controller = new LibraryController(loanService);
-        controller.start();
+        controller.wait();
     }
 }

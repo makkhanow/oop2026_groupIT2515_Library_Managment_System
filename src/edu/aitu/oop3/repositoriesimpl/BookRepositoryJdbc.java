@@ -2,7 +2,6 @@ package edu.aitu.oop3.repositoriesimpl;
 
 import edu.aitu.oop3.Entities.Book;
 import edu.aitu.oop3.Repositories.BookRepository;
-import edu.aitu.oop3.factory.BookFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,7 +10,7 @@ import java.util.Optional;
 
 public class BookRepositoryJdbc implements BookRepository {
 
-
+    @Override
     public Optional<Book> findById(Connection con, long id) throws SQLException {
         String sql = "SELECT id, title, author, isbn, total_copies, available_copies FROM books WHERE id = ?";
         try (PreparedStatement st = con.prepareStatement(sql)) {
@@ -23,9 +22,9 @@ public class BookRepositoryJdbc implements BookRepository {
         }
     }
 
-
+    @Override
     public List<Book> findAvailable(Connection con) throws SQLException {
-        String sql = "SELECT id, title, author, isbn, book_type, total_copies, available_copies FROM books ...\n WHERE available_copies > 0 ORDER BY id";
+        String sql = "SELECT id, title, author, isbn, total_copies, available_copies FROM books WHERE available_copies > 0 ORDER BY id";
         List<Book> list = new ArrayList<>();
         try (PreparedStatement st = con.prepareStatement(sql);
              ResultSet rs = st.executeQuery()) {
@@ -36,7 +35,7 @@ public class BookRepositoryJdbc implements BookRepository {
         return list;
     }
 
-
+    @Override
     public boolean decreaseAvailable(Connection con, long bookId) throws SQLException {
         String sql = "UPDATE books SET available_copies = available_copies - 1 WHERE id = ? AND available_copies > 0";
         try (PreparedStatement st = con.prepareStatement(sql)) {
@@ -66,6 +65,7 @@ public class BookRepositoryJdbc implements BookRepository {
         );
     }
 
+    @Override
     public Optional<Book> findById(Connection con, Long aLong) throws SQLException {
         return Optional.empty();
     }
@@ -117,7 +117,24 @@ public class BookRepositoryJdbc implements BookRepository {
      * @param aLong
      * @return
      */
+    @Override
+    public boolean deleteById(Long aLong) {
+        return false;
+    }
 
+    /**
+     * @return
+     */
+    @Override
+    public List<Book> listAvailableBooks() {
+        return List.of();
+    }
+
+    /**
+     * @param aLong
+     * @return
+     */
+    @Override
     public boolean deleteById(long aLong) {
         return false;
     }
