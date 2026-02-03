@@ -1,18 +1,7 @@
 package edu.aitu.oop3.Entities;
 
-public class ReferenceBook extends  Book {
-    private String subjectArea;
-
-    public ReferenceBook(int id, String title, String author, boolean available, String SubjectArea) {
-        super(id, title, author, available, "reference");
-        this.subjectArea = SubjectArea;
-    }
-
-    public String getSubjectArea() {
-        return subjectArea;
-    }
-
-    public void setSubjectArea(String subjectArea) {
-        this.subjectArea = subjectArea;
+public class ReferenceBook extends Book {
+    public ReferenceBook(long id, String title, String author, String isbn, int totalCopies, int availableCopies) {
+        super(id, title, author, isbn, totalCopies, availableCopies);
     }
 }

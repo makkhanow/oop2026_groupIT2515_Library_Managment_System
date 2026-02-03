@@ -1,20 +1,7 @@
 package edu.aitu.oop3.Entities;
 
 public class EBook extends Book {
-    private String fileFormat;
-
-    public EBook(int id, String title, String author, boolean available, String fileFormat) {
-        super(id, title, author, available, "ebook");
-        this.fileFormat = fileFormat;
+    public EBook(long id, String title, String author, String isbn, int totalCopies, int availableCopies) {
+        super(id, title, author, isbn, totalCopies, availableCopies);
     }
-
-    public String getFileFormat() {
-        return fileFormat;
-    }
-
-    public void setFileFormat(String fileFormat) {
-        this.fileFormat = fileFormat;
-    }
-
-
 }

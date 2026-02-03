@@ -13,7 +13,7 @@ import java.util.Optional;
 
 public class MemberRepositoryJdbc implements MemberRepository {
 
-    @Override
+
     public Optional<Member> findById(Connection con, long id) throws SQLException {
         String sql = "SELECT id, full_name, email FROM members WHERE id = ?";
         try (PreparedStatement st = con.prepareStatement(sql)) {

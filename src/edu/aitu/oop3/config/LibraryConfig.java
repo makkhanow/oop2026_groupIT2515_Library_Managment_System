@@ -1,38 +1,27 @@
 package edu.aitu.oop3.config;
 
-public class LibraryConfig {
-    private static LibraryConfig instance;
-    private int loanPeriodDays;
-    private int maxBooksPerMember;
-    private String libraryName;
+public final class LibraryConfig {
+    private static volatile LibraryConfig instance;
 
-    private  LibraryConfig() {
-        setLoanPeriodDays(14);
-        setMaxBooksPerMember(5);
-        setLibraryName("Best Library");
+    private final int defaultLoanDays;
+    private final double finePerDay;
+
+    private LibraryConfig(int defaultLoanDays, double finePerDay) {
+        this.defaultLoanDays = defaultLoanDays;
+        this.finePerDay = finePerDay;
     }
+
     public static LibraryConfig getInstance() {
         if (instance == null) {
-            instance = new LibraryConfig();
+            synchronized (LibraryConfig.class) {
+                if (instance == null) {
+                    instance = new LibraryConfig(14, 500.0);
+                }
+            }
         }
         return instance;
     }
-    public int getLoanPeriodDays() {
-        return loanPeriodDays;
-    }
-    public void setLoanPeriodDays(int loanPeriodDays) {
-        this.loanPeriodDays = loanPeriodDays;
-    }
-    public int getMaxBooksPerMember() {
-        return maxBooksPerMember;
-    }
-    public void setMaxBooksPerMember(int maxBooksPerMember) {
-        this.maxBooksPerMember = maxBooksPerMember;
-    }
-    public String getLibraryName() {
-        return libraryName;
-    }
-    public void setLibraryName(String libraryName) {
-        this.libraryName = libraryName;
-    }
+
+    public int getDefaultLoanDays() { return defaultLoanDays; }
+    public double getFinePerDay() { return finePerDay; }
 }

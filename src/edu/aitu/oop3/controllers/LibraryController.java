@@ -1,224 +1,100 @@
 package edu.aitu.oop3.controllers;
 
-import edu.aitu.oop3.Entities.Book;
-import edu.aitu.oop3.Exceptions.BookAlreadyOnLoanException;
-import edu.aitu.oop3.Exceptions.MemberNotFoundException;
-import edu.aitu.oop3.Repositories.BookRepository;
-import edu.aitu.oop3.Repositories.LoanRepository;
-import edu.aitu.oop3.Repositories.MemberRepository;
-import edu.aitu.oop3.services.FineCalculator;
 import edu.aitu.oop3.services.LoanService;
 
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 public class LibraryController {
-    private BookRepository bookRepository;
-    private MemberRepository memberRepository;
-    private LoanRepository loanRepository;
-    private LoanService loanService;
-    private Scanner scanner;
-    private final Map<Integer, Runnable> menuActions;
+
+    private final LoanService loanService;
 
     public LibraryController(LoanService loanService) {
-        this.bookRepository = bookRepository;
-        this.memberRepository = memberRepository;
-        this.loanRepository = loanRepository;
         this.loanService = loanService;
-        this.scanner = new Scanner(System.in);
-        FineCalculator fineCalculator = new FineCalculator() {
-            /**
-             * @param dueDate
-             * @param returnDate
-             * @return
-             */
-            @Override
-            public double calculate(LocalDate dueDate, LocalDate returnDate) {
-                return 0;
-            }
-        };
-        this.loanService = new LoanService(loanRepository, bookRepository, memberRepository, fineCalculator);
-
-        this.menuActions = Map.of(
-                1, this::listAvailableBooks,
-                2, this::borrowBook,
-                3, this::returnBook,
-                4, this::viewMemberSummary,
-                5, this::viewLoanReport,
-                6, this::createBook,
-                7, this::listOverdueLoans
-        );
     }
 
-    public void run() {
+    public void start() {
+        Scanner sc = new Scanner(System.in);
+
         while (true) {
-            System.out.println("\nLibrary Management System");
-            System.out.println("1. List Available Books");
-            System.out.println("2. Borrow Book");
-            System.out.println("3. Return Book");
-            System.out.println("4. View Member Summary");
-            System.out.println("5. View Loan Report");
-            System.out.println("6. Create Book");
-            System.out.println("7. List Overdue Loans");
-            System.out.println("8. Exit");
-            System.out.print("Choose an option: ");
+            System.out.println("\n=== Library Management System ===");
+            System.out.println("1) List available books");
+            System.out.println("2) Borrow book");
+            System.out.println("3) Return book");
+            System.out.println("4) View current loans per member");
+            System.out.println("5) Member summary");
+            System.out.println("0) Exit");
+            System.out.print("Choose option: ");
 
-            int choice;
+            String choice = sc.nextLine().trim();
+
             try {
-                choice = Integer.parseInt(scanner.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a number between 1 and 8.");
-                continue;
-            }
-
-            if (choice == 8) {
-                System.out.println("Exiting the system. Goodbye!");
-                break;
-            }
-
-            Runnable action = menuActions.get(choice);
-            if (action != null) {
-                action.run();
-            } else {
-                System.out.println("Invalid choice. Please try again.");
+                switch (choice) {
+                    case "1" -> listAvailableBooks();
+                    case "2" -> borrowBook(sc);
+                    case "3" -> returnBook(sc);
+                    case "4" -> viewLoansByMember(sc);
+                    case "5" -> memberSummary(sc);
+                    case "0" -> {
+                        System.out.println("Bye!");
+                        return;
+                    }
+                    default -> System.out.println("Wrong option!");
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR: " + e.getMessage());
             }
         }
     }
 
     private void listAvailableBooks() {
-        try {
-            List<Book> books = bookRepository.listAvailableBooks();
-            System.out.println("Available Books:");
-            if (books.isEmpty()) {
-                System.out.println("No available books at the moment.");
-                return;
-            }
-            books.stream()
-                    .sorted((b1, b2) -> b1.getTitle().compareToIgnoreCase(b2.getTitle()))
-                    .forEach(book ->
-                            System.out.println(book.getId() + ": " + book.getTitle())
-                    );
-        } catch (Exception e) {
-            System.out.println("Error retrieving available books: " + e.getMessage());
+        var books = loanService.listAvailableBooks();
+        if (books.isEmpty()) {
+            System.out.println("No available books.");
+            return;
         }
+        for (var b : books) System.out.println(b);
     }
 
-    private void borrowBook() {
-        try {
-            System.out.print("Enter Member ID: ");
-            int memberId = Integer.parseInt(scanner.nextLine());
-            System.out.print("Enter Book ID: ");
-            int bookId = Integer.parseInt(scanner.nextLine());
-            loanService.borrowBook(memberId, bookId);
-            System.out.println("Book borrowed successfully.");
-        } catch (MemberNotFoundException | BookAlreadyOnLoanException e) {
-            System.out.println("Error borrowing book: " + e.getMessage());
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter numeric values for IDs.");
-        } catch (Exception e) {
-            System.out.println("An unexpected error occurred: " + e.getMessage());
-        }
+    private void borrowBook(Scanner sc) {
+        System.out.print("Enter memberId: ");
+        long memberId = Long.parseLong(sc.nextLine().trim());
+
+        System.out.print("Enter bookId: ");
+        long bookId = Long.parseLong(sc.nextLine().trim());
+
+        var loan = loanService.borrowBook(memberId, bookId);
+        System.out.println("Borrowed successfully. Loan: " + loan);
     }
 
-    private void returnBook() {
-        try {
-            System.out.println("Enter Loan ID to return: ");
-            int loanId = Integer.parseInt(scanner.nextLine());
-            loanService.returnBook(loanId);
-            System.out.println("Book returned successfully.");
-        } catch (Exception e) {
-            System.out.println("Error returning book: " + e.getMessage());
-        }
+    private void returnBook(Scanner sc) {
+        System.out.print("Enter bookId: ");
+        long bookId = Long.parseLong(sc.nextLine().trim());
+
+        double fine = loanService.returnBook(bookId);
+        System.out.println("Returned successfully. Fine: " + fine);
     }
 
-    private void viewMemberSummary() {
-        try {
-            System.out.print("Enter Member ID: ");
-            int memberId = Integer.parseInt(scanner.nextLine());
-            MemberSummary summary = loanService.generateMemberSummary(memberId);
-            System.out.println("Member Summary for ID " + memberId + ":");
-            System.out.println("Name: " + summary.getMemberName());
-            System.out.println("Active Loans: " + summary.getActiveLoans());
-            System.out.println("Total Fines: $" + summary.getTotalFines());
-        } catch (MemberNotFoundException e) {
-            System.out.println("Error retrieving member summary: " + e.getMessage());
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter a numeric Member ID.");
-        } catch (Exception e) {
-            System.out.println("An unexpected error occurred: " + e.getMessage());
+    private void viewLoansByMember(Scanner sc) {
+        System.out.print("Enter memberId: ");
+        long memberId = Long.parseLong(sc.nextLine().trim());
+
+        var loans = loanService.viewCurrentLoansByMember(memberId);
+        if (loans.isEmpty()) {
+            System.out.println("No active loans.");
+            return;
         }
+        for (var l : loans) System.out.println(l);
     }
 
-    private <LoanReport> void viewLoanReport() {
-        try {
-            System.out.print("Enter Loan ID: ");
-            int loanId = Integer.parseInt(scanner.nextLine());
-            LoanReport report = loanService.generateLoanReport(loanId);
-            System.out.println(report);
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter a numeric Loan ID.");
-        }
-        catch (Exception e) {
-            System.out.println("An unexpected error occurred: " + e.getMessage());
-        }
-    }
+    private void memberSummary(Scanner sc) {
+        System.out.print("Enter memberId: ");
+        long memberId = Long.parseLong(sc.nextLine().trim());
 
-    private void createBook() {
-        try {
-            System.out.println("Choose Book Type (1. Printed, 2. EBook, 3. Reference): ");
-            int typeChoice = Integer.parseInt(scanner.nextLine());
-            System.out.print("Enter Title: ");
-            String title = scanner.nextLine();
-            System.out.print("Enter Author: ");
-            String author = scanner.nextLine();
-            System.out.print("Enter Year: ");
-            int year = Integer.parseInt(scanner.nextLine());
-            Book book = null;
-            switch (typeChoice) {
-                case 1:
-                    System.out.print("Enter Number of Pages: ");
-                    int pages = Integer.parseInt(scanner.nextLine());
-                    LibraryController BookFactory = null;
-                    book = BookFactory.createBook(0, title, author, true, "printed", pages, null, null);
-                    bookRepository.save(book);
-                    System.out.println("Printed Book created successfully.");
-                    break;
-                case 2:
-                    System.out.print("Enter File Format: ");
-                    String fileFormat = scanner.nextLine();
-                    book = BookFactory.createBook(0, title, author, true, "ebook", 0, fileFormat, null);
-                    bookRepository.save(book);
-                    System.out.println("EBook created successfully.");
-                    break;
-                case 3:
-                    System.out.print("Enter File Format: ");
-                    String subjectArea = scanner.nextLine();
-                    book = BookFactory.createBook(0, title, author, true, "reference", 0, null, subjectArea);
-                    bookRepository.save(book);
-                    System.out.println("Reference Book created successfully.");
-                    break;
-                default:
-                    System.out.println("Invalid book type choice.");
-                    break;
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter numeric values where required.");
-        } catch (Exception e) {
-            System.out.println("Error creating book: " + e.getMessage());
-        }
-    }
+        var summary = loanService.buildMemberSummary(memberId);
 
-    private Book createBook(int i, String title, String author, boolean b, String printed, int pages, Object o, Object o1) {
-        return null;
-    }
-
-    private void listOverdueLoans() {
-        try {
-            loanService.listOverdueLoans();
-        } catch (Exception e) {
-            System.out.println("Error listing overdue loans: " + e.getMessage());
-        }
+        System.out.println("Member: " + summary.getMember());
+        System.out.println("Active loans:");
+        for (var l : summary.getActiveLoans()) System.out.println(l);
+        System.out.println("Total fine (if returned today): " + summary.getTotalFine());
     }
 }
