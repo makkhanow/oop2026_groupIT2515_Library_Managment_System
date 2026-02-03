@@ -101,6 +101,23 @@ public class BookRepositoryJdbc implements BookRepository {
      * @return
      */
     @Override
+    public boolean deleteById(Long aLong) {
+        return false;
+    }
+
+    /**
+     * @return
+     */
+    @Override
+    public List<Book> listAvailableBooks() {
+        return List.of();
+    }
+
+    /**
+     * @param aLong
+     * @return
+     */
+    @Override
     public boolean deleteById(long aLong) {
         return false;
     }

@@ -15,7 +15,7 @@ import edu.aitu.oop3.services.LoanService;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         String url = "jdbc:postgresql://aws-1-ap-southeast-2.pooler.supabase.com:5432/postgres?sslmode=require";
         String user = "postgres.yoylqddvtcevkdhyktlp";
@@ -34,6 +34,6 @@ public class Main {
         );
 
         LibraryController controller = new LibraryController(loanService);
-        controller.start();
+        controller.wait();
     }
 }

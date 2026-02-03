@@ -1,5 +1,6 @@
 package edu.aitu.oop3.repositoriesimpl;
 
+import edu.aitu.oop3.Entities.Book;
 import edu.aitu.oop3.Entities.Loan;
 import edu.aitu.oop3.Repositories.LoanRepository;
 
@@ -87,5 +88,48 @@ public class LoanRepositoryJdbc implements LoanRepository {
                 rs.getDate("due_date").toLocalDate(),
                 returnDate
         );
+    }
+
+    /**
+     * @param entity
+     * @return
+     */
+    @Override
+    public Loan save(Loan entity) {
+        return null;
+    }
+
+    /**
+     * @param aLong
+     * @return
+     */
+    @Override
+    public Optional<Loan> findById(Long aLong) {
+        return Optional.empty();
+    }
+
+    /**
+     * @return
+     */
+    @Override
+    public List<Loan> findAll() {
+        return List.of();
+    }
+
+    /**
+     * @param aLong
+     * @return
+     */
+    @Override
+    public boolean deleteById(Long aLong) {
+        return false;
+    }
+
+    /**
+     * @return
+     */
+    @Override
+    public List<Book> listAvailableBooks() {
+        return List.of();
     }
 }

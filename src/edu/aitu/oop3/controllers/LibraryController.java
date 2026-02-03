@@ -1,9 +1,7 @@
 package edu.aitu.oop3.controllers;
 
 import edu.aitu.oop3.Entities.Book;
-import edu.aitu.oop3.Entities.Loan;
 import edu.aitu.oop3.Exceptions.BookAlreadyOnLoanException;
-import edu.aitu.oop3.Exceptions.LoanOverdueException;
 import edu.aitu.oop3.Exceptions.MemberNotFoundException;
 import edu.aitu.oop3.Repositories.BookRepository;
 import edu.aitu.oop3.Repositories.LoanRepository;
@@ -24,7 +22,7 @@ public class LibraryController {
     private Scanner scanner;
     private final Map<Integer, Runnable> menuActions;
 
-    public LibraryController(BookRepository bookRepository, MemberRepository memberRepository, LoanRepository loanRepository, LoanService loanService) {
+    public LibraryController(LoanService loanService) {
         this.bookRepository = bookRepository;
         this.memberRepository = memberRepository;
         this.loanRepository = loanRepository;

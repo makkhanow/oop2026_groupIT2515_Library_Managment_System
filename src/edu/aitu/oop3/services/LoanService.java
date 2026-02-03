@@ -38,7 +38,7 @@ public class LoanService {
         this.defaultLoanDays = defaultLoanDays;
     }
 
-    public LoanService(LoanRepository loanRepository, BookRepository bookRepository, MemberRepository memberRepository, FineCalculator fineCalculator, IDB db, BookRepository bookRepo, MemberRepository memberRepo, LoanRepository loanRepo, FineCalculator fineCalculator1, int defaultLoanDays) {
+    public LoanService(LoanRepository loanRepository, BookRepository bookRepository, MemberRepository memberRepository, FineCalculator fineCalculator) {
 
         this.db = db;
         this.bookRepo = bookRepo;
