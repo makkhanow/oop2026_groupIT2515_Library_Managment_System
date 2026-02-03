@@ -64,7 +64,7 @@ public class LoanService {
     public List<Loan> viewCurrentLoansByMember(long memberId) {
         try (Connection con = db.getConnection()) {
             // member must exist
-            if (memberRepo.findById(con, memberId).isEmpty()) {
+              if (memberRepo.findById(con, memberId).isEmpty()) {
                 throw new MemberNotFoundException(memberId);
             }
             return loanRepo.findActiveLoansByMember(con, memberId);
@@ -162,5 +162,10 @@ public class LoanService {
 
     public void listOverdueLoans() {
 
+    }
+
+    public Object buildMemberSummary(long memberId) {
+
+        return null;
     }
 }

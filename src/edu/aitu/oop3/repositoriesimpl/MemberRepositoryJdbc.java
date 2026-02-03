@@ -39,11 +39,12 @@ public class MemberRepositoryJdbc implements MemberRepository {
     }
 
     /**
+     * @param con
      * @param aLong
      * @return
      */
     @Override
-    public Optional<Member> findById(Long aLong) {
+    public Optional<Member> findById(Connection con, Long aLong) {
         return Optional.empty();
     }
 

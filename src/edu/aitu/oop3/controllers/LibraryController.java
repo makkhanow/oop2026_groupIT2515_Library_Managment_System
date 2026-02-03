@@ -29,16 +29,26 @@ public class LibraryController {
 
             try {
                 switch (choice) {
-                    case "1" -> listAvailableBooks();
-                    case "2" -> borrowBook(sc);
-                    case "3" -> returnBook(sc);
-                    case "4" -> viewLoansByMember(sc);
-                    case "5" -> memberSummary(sc);
-                    case "0" -> {
+                    case "1":
+                        listAvailableBooks();
+                        break;
+                    case "2":
+                        borrowBook(sc);
+                        break;
+                    case "3":
+                        returnBook(sc);
+                        break;
+                    case "4":
+                        viewLoansByMember(sc);
+                        break;
+                    case "5":
+                        memberSummary(sc);
+                        break;
+                    case "0":
                         System.out.println("Bye!");
                         return;
-                    }
-                    default -> System.out.println("Wrong option!");
+                    default:
+                        System.out.println("Wrong option!");
                 }
             } catch (Exception e) {
                 System.out.println("ERROR: " + e.getMessage());
@@ -48,53 +58,73 @@ public class LibraryController {
 
     private void listAvailableBooks() {
         var books = loanService.listAvailableBooks();
-        if (books.isEmpty()) {
+        if (books == null || books.isEmpty()) {
             System.out.println("No available books.");
             return;
         }
-        for (var b : books) System.out.println(b);
+        for (var b : books) {
+            System.out.println(b);
+        }
     }
 
     private void borrowBook(Scanner sc) {
-        System.out.print("Enter memberId: ");
-        long memberId = Long.parseLong(sc.nextLine().trim());
-
-        System.out.print("Enter bookId: ");
-        long bookId = Long.parseLong(sc.nextLine().trim());
+        long memberId = readLong(sc, "Enter memberId: ");
+        long bookId = readLong(sc, "Enter bookId: ");
 
         var loan = loanService.borrowBook(memberId, bookId);
         System.out.println("Borrowed successfully. Loan: " + loan);
     }
 
     private void returnBook(Scanner sc) {
-        System.out.print("Enter bookId: ");
-        long bookId = Long.parseLong(sc.nextLine().trim());
+        long bookId = readLong(sc, "Enter bookId: ");
 
         double fine = loanService.returnBook(bookId);
         System.out.println("Returned successfully. Fine: " + fine);
     }
 
     private void viewLoansByMember(Scanner sc) {
-        System.out.print("Enter memberId: ");
-        long memberId = Long.parseLong(sc.nextLine().trim());
+        long memberId = readLong(sc, "Enter memberId: ");
 
         var loans = loanService.viewCurrentLoansByMember(memberId);
-        if (loans.isEmpty()) {
+        if (loans == null || loans.isEmpty()) {
             System.out.println("No active loans.");
             return;
         }
-        for (var l : loans) System.out.println(l);
+        for (var l : loans) {
+            System.out.println(l);
+        }
     }
 
     private void memberSummary(Scanner sc) {
-        System.out.print("Enter memberId: ");
-        long memberId = Long.parseLong(sc.nextLine().trim());
+        long memberId = readLong(sc, "Enter memberId: ");
 
-        var summary = loanService.buildMemberSummary(memberId);
-
-        System.out.println("Member: " + summary.getMember());
+        System.out.println("Member ID: " + memberId);
         System.out.println("Active loans:");
-        for (var l : summary.getActiveLoans()) System.out.println(l);
-        System.out.println("Total fine (if returned today): " + summary.getTotalFine());
+
+        var loans = loanService.viewCurrentLoansByMember(memberId);
+
+        if (loans == null || loans.isEmpty()) {
+            System.out.println("No active loans.");
+            System.out.println("Total fine (if returned today): 0");
+            return;
+        }
+
+        for (var l : loans) {
+            System.out.println(l);
+        }
+
+
+        System.out.println("Total fine (if returned today): 0");
+    }
+
+    private long readLong(Scanner sc, String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String s = sc.nextLine().trim();
+            try {
+                return Long.parseLong(s);} catch (NumberFormatException e) {
+                System.out.println("Please enter a valid number.");
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public abstract class FineCalculator {
     public double calculateFine(@MonotonicNonNull Optional<Loan> loan) {
-        if (!loan.orElse(null).isOverdue() {
+        if (!loan.orElse(null).isOverdue()){
             return 0;
         }
         long overdueDays = loan.hashCode();

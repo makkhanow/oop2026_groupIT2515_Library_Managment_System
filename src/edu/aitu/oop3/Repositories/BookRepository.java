@@ -7,21 +7,13 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public interface BookRepository extends CrudRepository<Book, Long> {
+public interface BookRepository {
 
     Optional<Book> findById(Connection con, long id) throws SQLException;
-    List<Book> findAvailable(Connection con) throws SQLException;
 
+    List<Book> findAvailable(Connection con) throws SQLException;
 
     boolean decreaseAvailable(Connection con, long bookId) throws SQLException;
 
-
     void increaseAvailable(Connection con, long bookId) throws SQLException;
-
-    Optional<Book> findById(Connection con, Long aLong) throws SQLException;
-
-    boolean deleteById(long aLong);
 }
-
-
-

@@ -1,87 +1,63 @@
 package edu.aitu.oop3.app;
 
-import edu.aitu.oop3.Entities.Book;
 import edu.aitu.oop3.Entities.Loan;
+import edu.aitu.oop3.config.LibraryConfig;
 import edu.aitu.oop3.controllers.LibraryController;
 import edu.aitu.oop3.db.IDB;
 import edu.aitu.oop3.db.SupabaseDB;
+
 import edu.aitu.oop3.Repositories.BookRepository;
 import edu.aitu.oop3.Repositories.MemberRepository;
 import edu.aitu.oop3.Repositories.LoanRepository;
+
 import edu.aitu.oop3.repositoriesimpl.BookRepositoryJdbc;
 import edu.aitu.oop3.repositoriesimpl.MemberRepositoryJdbc;
 import edu.aitu.oop3.repositoriesimpl.LoanRepositoryJdbc;
+
 import edu.aitu.oop3.services.FineCalculator;
 import edu.aitu.oop3.services.SimpleFineCalculator;
 import edu.aitu.oop3.services.LoanService;
 
-import java.util.List;
 import java.util.Optional;
 
-
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
 
-        String url = "jdbc:postgresql://aws-1-ap-southeast-2.pooler.supabase.com:5432/postgres?sslmode=require";
-        String user = "postgres.yoylqddvtcevkdhyktlp";
-        String password = "DB_PASSWORD";
+    public static void main(String[] args) {
+
+
+        String url = "jdbc:postgresql://YOUR_HOST:5432/postgres?sslmode=require";
+        String user = "YOUR_DB_USER";
+        String password = "YOUR_DB_PASSWORD";
 
         IDB db = new SupabaseDB(url, user, password);
+
 
         BookRepository bookRepo = new BookRepositoryJdbc();
         MemberRepository memberRepo = new MemberRepositoryJdbc();
         LoanRepository loanRepo = new LoanRepositoryJdbc() {
             /**
-             * @param entity
-             * @return
+             * @param loan
              */
             @Override
-            public Loan save(Loan entity) {
-                return null;
-            }
+            public void update(Optional<Loan> loan) {
 
-            /**
-             * @param aLong
-             * @return
-             */
-            @Override
-            public Optional<Loan> findById(Long aLong) {
-                return Optional.empty();
-            }
-
-            /**
-             * @return
-             */
-            @Override
-            public List<Loan> findAll() {
-                return List.of();
-            }
-
-            /**
-             * @param aLong
-             * @return
-             */
-            @Override
-            public boolean deleteById(Long aLong) {
-                return false;
-            }
-
-            /**
-             * @return
-             */
-            @Override
-            public List<Book> listAvailableBooks() {
-                return List.of();
             }
         };
+        LibraryConfig cfg = LibraryConfig.getInstance();
 
-        FineCalculator fineCalculator = new SimpleFineCalculator(500.0);
+
+        FineCalculator fineCalculator = new SimpleFineCalculator(cfg.getFinePerDay());
 
         LoanService loanService = new LoanService(
-                db, bookRepo, memberRepo, loanRepo, fineCalculator, 14
+                db,
+                bookRepo,
+                memberRepo,
+                loanRepo,
+                fineCalculator,
+                cfg.getDefaultLoanDays()
         );
 
         LibraryController controller = new LibraryController(loanService);
-        controller.wait();
+        controller.start();
     }
 }

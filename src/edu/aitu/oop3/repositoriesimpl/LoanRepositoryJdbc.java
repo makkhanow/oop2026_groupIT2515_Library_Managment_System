@@ -90,44 +90,26 @@ public abstract class LoanRepositoryJdbc implements LoanRepository {
         );
     }
 
-    /**
-     * @param entity
-     * @return
-     */
     @Override
     public Loan save(Loan entity) {
         return null;
     }
 
-    /**
-     * @param aLong
-     * @return
-     */
     @Override
-    public Optional<Loan> findById(Long aLong) {
+    public Optional<Loan> findById(Connection con, Long aLong) {
         return Optional.empty();
     }
 
-    /**
-     * @return
-     */
     @Override
     public List<Loan> findAll() {
         return List.of();
     }
 
-    /**
-     * @param aLong
-     * @return
-     */
     @Override
     public boolean deleteById(Long aLong) {
         return false;
     }
 
-    /**
-     * @return
-     */
     @Override
     public List<Book> listAvailableBooks() {
         return List.of();
