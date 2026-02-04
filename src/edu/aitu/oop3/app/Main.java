@@ -25,9 +25,9 @@ public class Main {
     public static void main(String[] args) {
 
 
-        String url = "jdbc:postgresql://YOUR_HOST:5432/postgres?sslmode=require";
-        String user = "YOUR_DB_USER";
-        String password = "YOUR_DB_PASSWORD";
+        String url = "jdbc:postgresql://aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres?sslmode=require";
+        String user = "postgres.ctqfozjpivptrajlvbot";
+        String password = "DB_PASSWORD";
 
         IDB db = new SupabaseDB(url, user, password);
 
