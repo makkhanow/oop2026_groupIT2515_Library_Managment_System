@@ -52,6 +52,7 @@ public class LibraryController {
                 }
             } catch (Exception e) {
                 System.out.println("ERROR: " + e.getMessage());
+                e.printStackTrace();
             }
         }
     }

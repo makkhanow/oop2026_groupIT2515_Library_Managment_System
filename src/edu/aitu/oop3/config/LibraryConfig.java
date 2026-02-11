@@ -1,6 +1,6 @@
 package edu.aitu.oop3.config;
 
-public final class LibraryConfig {
+public final class  LibraryConfig {
     private static volatile LibraryConfig instance;
 
     private final int defaultLoanDays;

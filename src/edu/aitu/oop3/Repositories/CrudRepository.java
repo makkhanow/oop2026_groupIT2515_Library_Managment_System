@@ -3,12 +3,13 @@ package edu.aitu.oop3.Repositories;
 import edu.aitu.oop3.Entities.Book;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
 public interface CrudRepository<T, ID> {
     T save(T entity);
-    Optional<T> findById(Connection con, ID id);
+    Optional<T> findById(Connection con, ID id) throws SQLException;
     List<T> findAll();
     boolean deleteById(ID id);
 
