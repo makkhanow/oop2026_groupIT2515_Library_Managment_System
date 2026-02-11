@@ -12,7 +12,7 @@ public class BookRepositoryJdbc implements BookRepository {
 
     @Override
     public Optional<Book> findById(Connection con, long id) throws SQLException {
-        String sql = "SELECT id, title, author, isbn, total_copies, available_copies FROM books WHERE id = ?";
+        String sql = "SELECT id, title, author, type, total_copies, available_copies FROM books WHERE id = ?";
         try (PreparedStatement st = con.prepareStatement(sql)) {
             st.setLong(1, id);
             try (ResultSet rs = st.executeQuery()) {
@@ -24,13 +24,12 @@ public class BookRepositoryJdbc implements BookRepository {
 
     @Override
     public List<Book> findAvailable(Connection con) throws SQLException {
-        String sql = "SELECT id, title, author, isbn, total_copies, available_copies FROM books WHERE available_copies > 0 ORDER BY id";
+        String sql = "SELECT id, title, author, type, total_copies, available_copies " +
+                "FROM books WHERE available_copies > 0 ORDER BY id";
         List<Book> list = new ArrayList<>();
         try (PreparedStatement st = con.prepareStatement(sql);
              ResultSet rs = st.executeQuery()) {
-            while (rs.next()) {
-                list.add(map(rs));
-            }
+            while (rs.next()) list.add(map(rs));
         }
         return list;
     }
@@ -40,8 +39,7 @@ public class BookRepositoryJdbc implements BookRepository {
         String sql = "UPDATE books SET available_copies = available_copies - 1 WHERE id = ? AND available_copies > 0";
         try (PreparedStatement st = con.prepareStatement(sql)) {
             st.setLong(1, bookId);
-            int updated = st.executeUpdate();
-            return updated == 1;
+            return st.executeUpdate() == 1;
         }
     }
 
@@ -55,11 +53,12 @@ public class BookRepositoryJdbc implements BookRepository {
     }
 
     private Book map(ResultSet rs) throws SQLException {
+        // ⚠️ Тут важно: твой Book должен иметь constructor с (id,title,author,type,total,available)
         return new Book(
                 rs.getLong("id"),
                 rs.getString("title"),
                 rs.getString("author"),
-                rs.getString("isbn"),
+                rs.getString("type"),
                 rs.getInt("total_copies"),
                 rs.getInt("available_copies")
         );
